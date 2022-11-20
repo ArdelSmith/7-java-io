@@ -17,10 +17,15 @@ public class Task02Main {
             f = a.read();
             if (f == 10 & data.get(i) == 13){
                 data.remove(i);
-                data.add(10);
+                data.add(f);
             }
-            else data.add(f);
-            i += 1;
+            else {
+                data.add(f);
+                i += 1;
+            }
+        }
+        for (int e = 0; e < i; e++){
+            b.write(data.get(e));
         }
         b.flush();
     }
