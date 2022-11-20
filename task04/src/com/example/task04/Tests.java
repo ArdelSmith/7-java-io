@@ -5,7 +5,7 @@ import org.junit.Test;
 
 import java.io.*;
 
-public class Tests {
+public class    Tests {
     private void check(String input, String output) throws IOException {
         InputStream sin = System.in;
         PrintStream sout = System.out;
