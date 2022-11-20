@@ -1,13 +1,27 @@
 package com.example.task02;
-
-import java.io.IOException;
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.*;
 
 public class Task02Main {
     public static void main(String[] args) throws IOException {
-        // чтобы протестировать свое решение, вам нужно:
-        // - направить файл input.test в стандартный ввод программы (в настройках запуска программы в IDE или в консоли)
-        // - направить стандартный вывод программы в файл output.test
-        // - запустить программу
-        // - и сравнить получившийся файл output.test с expected.test
+        WindowsToUnix(System.in, System.out);
+    }
+    public static void WindowsToUnix(InputStream a, OutputStream b) throws IOException {
+        int i = 0;
+        int f = a.read();
+        List<Integer> data = new ArrayList<Integer>();
+        data.add(f);
+        while (f != -1){
+            f = a.read();
+            if (f == 10 & data.get(i) == 13){
+                data.remove(i);
+                data.add(10);
+            }
+            else data.add(f);
+            i += 1;
+        }
+        b.flush();
     }
 }
